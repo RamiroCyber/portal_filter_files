@@ -1,6 +1,6 @@
 import React, { } from 'react';
 import './App.css'
-import Uploader from "./Uploader.tsx";
+import Uploader from "./components/Uploader.tsx";
 
 const FileUploadComponent: React.FC = () => {
     // const [message, setMessage] = useState<string>('');
