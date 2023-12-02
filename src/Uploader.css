@@ -1,0 +1,14 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    height: 300px;
+    width: 500px;
+    color: #1a1a1a;
+}
