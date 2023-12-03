@@ -1,4 +1,4 @@
-import React, { } from 'react';
+import React from 'react';
 import './App.css'
 import Uploader from "./components/Uploader.tsx";
 
@@ -11,19 +11,22 @@ const FileUploadComponent: React.FC = () => {
 
     return (
         <div>
-            <Uploader></Uploader>
-            <button type="submit" style={{
-                width: '100%',
-                padding: '10px',
-                backgroundColor: '#28a745',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer'
-            }}>Enviar
-            </button>
-        </div>
+            <div style={{position:"relative", zIndex:10}}>
+                <Uploader></Uploader>
+            </div>
+            <div className="waveWrapper waveAnimation">
+                <div className="waveWrapperInner bgTop">
+                    <div className="wave waveTop" style={{ backgroundImage: 'url(http://front-end-noobs.com/jecko/img/wave-top.png)' }}></div>
+                </div>
+                <div className="waveWrapperInner bgMiddle">
+                    <div className="wave waveMiddle" style={{ backgroundImage: 'url(http://front-end-noobs.com/jecko/img/wave-mid.png)' }}></div>
+                </div>
+                <div className="waveWrapperInner bgBottom">
+                    <div className="wave waveBottom" style={{ backgroundImage: 'url(http://front-end-noobs.com/jecko/img/wave-bot.png)' }}></div>
+                </div>
 
+            </div>
+        </div>
     );
 };
 

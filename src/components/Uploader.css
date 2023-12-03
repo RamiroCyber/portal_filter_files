@@ -1,11 +1,10 @@
-form {
+.uploaded {
     background: linear-gradient(to top, #89f7fe, #66a6ff);
     transition: background 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 15px;
@@ -31,4 +30,21 @@ form {
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    background: linear-gradient(to right, greenyellow, green);
+    border-radius: 5px;
+    transition: width 0.1s ease;
 }
