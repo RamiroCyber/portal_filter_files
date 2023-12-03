@@ -1,6 +1,6 @@
 import React, { useState, DragEvent, useRef } from 'react';
 import './Uploader.css';
-import { MdCloudUpload, MdDelete } from 'react-icons/md';
+import { MdDelete } from 'react-icons/md';
 import { FaFileAlt } from 'react-icons/fa';
 
 const Uploader: React.FC = () => {
@@ -47,32 +47,45 @@ const Uploader: React.FC = () => {
                     setUploading(false);
                     return 200;
                 }
-                return prevProgress + 1;
+                return prevProgress + 5;
             });
-        }, 40);
+        }, 130);
     };
+
+
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div className={'uploaded'} onDrop={handleDrop} onDragOver={handleDragOver} onClick={handleClick}>
-                    <MdCloudUpload size="3em" style={{ margin: '10px auto', display: 'block' }}/>
-                    <label htmlFor="fileUpload" style={{ marginBottom: '10px', display: 'inline-block' }}>
-                        Arraste os arquivos aqui ou clique para fazer upload
-                    </label>
-                    <input type="file" id="fileUpload" onChange={handleFileChange} style={{ display: 'none' }} accept=".txt,.pdf,.doc,.docx" multiple ref={fileInputRef} />
+            <div className="wrapper">
+                <div className="container">
+                    <h1>Upload a file</h1>
+                    <div className="text-input">
+                        <input type="text" id="input1" placeholder="Digite as palavras-chave!"/>
+                            <label htmlFor="input1">Keywords</label>
+                    </div>
+                    <div className="upload-container" onDrop={handleDrop} onDragOver={handleDragOver} onClick={handleClick}>
+                        <div className="border-container">
+                            <div className="icons fa-4x">
+                                <i className="fas fa-file-alt"></i>
+                                <i className="fas fa-file-pdf"></i>
+                            </div>
+                            <label htmlFor="fileUpload" style={{ marginBottom: '10px', display: 'inline-block' }}>
+                                <span>Arraste</span> os arquivos aqui ou <span>clique</span> para fazer upload
+                            </label>
+                            <input type="file" id="fileUpload" onChange={handleFileChange} style={{ display: 'none' }} accept=".txt,.pdf,.doc,.docx" multiple ref={fileInputRef} />
+
+                        </div>
+                        {uploading && (
+                            <div className="progress-bar">
+                                <div className="progress"  style={{ width: `${uploadProgress}%` }}>{uploadProgress}%</div>
+                            </div>
+                        )}
+                    </div>
                 </div>
-                <button type="submit" style={{
-                    width: '100%',
-                    padding: '10px',
-                    backgroundColor: '#28a745',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer'
-                }}>Enviar
+            </div>
+                <button type="submit" className={'bottom'}>Enviar
                 </button>
-            </form>
             {files.length > 0 && (
                 <section className={'uploaded-row'}>
                     {files.map((file, index) => (
@@ -86,11 +99,7 @@ const Uploader: React.FC = () => {
                     ))}
                 </section>
             )}
-            {uploading && (
-                <div className="progress-bar">
-                    <div className="progress"  style={{ width: `${uploadProgress}%` }}>{uploadProgress}%</div>
-                </div>
-            )}
+</form>
         </div>
     );
 };
